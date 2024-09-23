@@ -1,33 +1,30 @@
-> _Fork_ deze leertaak en ga aan de slag. 
-Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. 
-De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# WOGO
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+## Beschrijving 📄
+WOGO Cocktailwalks organiseert culinaire wandeltochten waarbij deelnemers verschillende horecagelegenheden bezoeken. Tijdens deze tochten krijgen de deelnemers op elke locatie een speciaal samengestelde cocktails geserveerd. Het doel van WOGO Cocktailwalks is om een unieke en sociale drinkervaring te bieden, waarbij men kan genieten van diverse creatieve cocktails, terwijl men ook de stad en de horeca beter leert kennen. Dit was een samenwerkingsopdracht. 
 
-## Inhoudsopgave
+![mockup-wogo2](https://github.com/mcphendriks/wogo/assets/112857444/8a4b6785-f30d-488b-a680-0893cdb2cc2e)
 
-  * [Beschrijving](#beschrijving)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Gebruik](#gebruik)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
 
-## Beschrijving
-<!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+## Kenmerken 🧰
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+**TOOLS:**
+* VSCode
+* Figma
+  
+**GEBRUIKTE TECHNIEKEN 🛠️:**
+* Sveltekit
+* Contentful
 
-## Installatie
+## Installatie ⚙️
+1. Clone of download deze repository naar de gewenste folder.
+2. Open de root directory van dit project en open het project in een code editor naar keuze.
+3. Gebruik npm install om de benodigde packages te downloaden voor dit project.
+5. Start een server met npm run dev.
+   
+## Licentie ⚠️
+This project is licensed under the terms of the MIT license.
 
-## Gebruik
+## Links 🔗
 
-## Bronnen
-
-## Licentie
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
+[Backlog](https://github.com/orgs/fdnd-agency/projects/29/views/1)
