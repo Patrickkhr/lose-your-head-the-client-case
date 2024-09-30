@@ -1,18 +1,36 @@
 <script>
-  import { ButtonLink } from '$lib/index'
+  import { Button, ArrowRight } from '$lib/index'
   export let items
 </script>
 
 <section>
-  <video autoplay muted loop aria-label={items.backgroundAsset.title}>
-    <source src={items.backgroundAsset.url} type="video/mp4" />
+  <video
+    autoplay
+    loop
+    muted
+    width="1280"
+    height="1000"
+    aria-label={items.description}
+    aria-hidden="true"
+    poster="/hero-image-background.webp"
+  >
+    <source src={items[0].asset.url} type="video/webm" />
+    <source src={items[0].asset.url} type="video/webm" />
+    <source src="path/to/video-480p.mp4" type="video/mp4" media="(min-width: 480px)" />
+    <source src="path/to/video-360p.mp4" type="video/mp4" media="(max-width: 1280px)" />
   </video>
   <div class="hero-content">
     <h1>
-      {items.headline}
-      <ButtonLink style="display: flex gap: 1rem;" href="/" title={items.buttonText} />
+      {items[0].title}
+      <Button
+        variant="primary"
+        title="book now"
+        icon={ArrowRight}
+        iconColor="var(--btn-primary-text-clr)"
+        size="lg"
+      />
     </h1>
-    <p>{items.bodyText}</p>
+    <p>{items[0].subtitle}</p>
   </div>
 </section>
 
@@ -71,6 +89,7 @@
     font-weight: 700;
     letter-spacing: 0.2rem;
     padding: 0.5rem;
+    text-transform: lowercase;
     filter: drop-shadow(0 0 0.4rem #000);
     position: relative;
     animation-name: content;

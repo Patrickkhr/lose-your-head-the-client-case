@@ -1,24 +1,23 @@
- import { error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit'
 import contentfulFetch from '../api/contentful-fetch'
 
 
 const query = `
 {
-  navigationCollection(limit: 1) {
-    items {
-      logo {
-        url
-      }
-      navigationLinksCollection(limit: 5) {
-        items {
-          ... on TypeLink {
-            internalName
-            url
+  navigation(id: "4xhowg37MDjXP7okbSrx1b") {
+    navigationLinksCollection {
+      items {
+         ... on TypeLink {
+           title
+           label
+          	slug
+            isMoreLink
             subLinksCollection(limit: 5) {
               items {
                 ... on TypeLink {
-                  internalName
-                  url
+                  title
+                  slug
+                  isMoreLink
                 }
               }
             }
@@ -26,57 +25,25 @@ const query = `
         }
       }
     }
-  }
-
-  tabBarCollection(limit: 1) {
-    items {
-      tabBarItemsCollection(limit: 4) {
-        items {
-          ... on IsButtonLink {
-            title
-            url
-            icon {
-              ... on TypeImage {
-                mediaCollection {
-                  items {
-                    title
-                    description
-                    url
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 
   footerCollection(limit: 1) {
     items {
-      formNewsletterTitle
-      formLabel
-      formPlaceholderText
-      formButtonText
-      logo {
-        title
-        description
-        url
-      }
-      footerLinksCollection(limit: 20) {
+      newsletterTitle
+			newsLetterDescription
+      placeholderText
+      footerLinksCollection(limit: 5) {
         items {
           ... on TypeLink {
-            internalName
             title
-            url
+            slug
           }
         }
       }
-      socialMediaLinksCollection(limit: 3) {
+      socialMediaIconsCollection(limit: 3) {
         items {
-          ... on TypeImage {
-            mediaUrl
-            mediaCollection {
+          ... on TypeAssets {
+            url
+            assetCollection {
               items {
                 title
                 description
@@ -101,13 +68,11 @@ const query = `
       })
     }
     const { data } = await response.json()
-    const { items: navigationItems } = data.navigationCollection
+    const { navigation } = data
     const { items: footerItems } = data.footerCollection
-    const { items: tabBarItems } = data.tabBarCollection
     
     return {
-      navigation: navigationItems,
-      footer: footerItems,
-      tabBar: tabBarItems,
-    }
+      navigation,
+      footer: footerItems
+    };
   }
