@@ -1,17 +1,12 @@
 <script>
-  import { Image } from '$lib/index.js'
   export let items
 </script>
 
 <section>
   <ul>
-    {#each items[1].componentsCollection.items as item, index}
-      <li class="card-list card-number">
-        <div class="card-body" tabIndex="0">
-          <div class="image-container">
-            <Image src={item.image.url} alt={item.image.title} width="/" height="/" loading="lazy"
-            ></Image>
-          </div>
+    <li class="card-list card-number">
+      <div class="card-body" tabIndex="0">
+          {#each items[1].componentsCollection.items as item, index}
           <div class="text-content">
             <div class="span-cirkel">
               <span aria-label="Step {index + 1}">{index + 1}</span>
@@ -19,9 +14,9 @@
             </div>
             <p>{item.textParagraph}</p>
           </div>
+          {/each}
         </div>
       </li>
-    {/each}
   </ul>
 </section>
 
@@ -31,38 +26,21 @@
     --cardHeight: 87vh;
     --cardTopPadding: 1.5em;
     --cardMargin: 4vw;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    padding-inline: 2em;
   }
 
   ul {
+    display: flex;
     list-style: none;
     padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--cards), var(--cardHeight));
     gap: var(--cardMargin);
-    padding-bottom: calc(var(--cards) * var(--cardTopPadding));
     margin-bottom: var(--cardMargin);
   }
 
   .card-list {
-    position: sticky;
-    top: 0;
     padding-top: calc(var(--index) * var(--cardTopPadding));
-  }
-
-  .card-number:nth-child(1) {
-    --index: 1;
-  }
-  .card-number:nth-child(2) {
-    --index: 2;
-  }
-  .card-number:nth-child(3) {
-    --index: 3;
-  }
-  .card-number:nth-child(4) {
-    --index: 4;
   }
 
   .card-number:nth-child(1) .card-body {
@@ -81,24 +59,15 @@
   .card-body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 3.5rem;
-    height: var(--cardHeight);
+    /* height: var(--cardHeight); */
+    height: auto;
     padding: 2rem;
-    border-radius: 50px;
+    border-radius: 20px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
     transition: all 0.5s;
-  }
-
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    min-width: 200px;
-    max-width: 300px;
-    overflow: hidden;
   }
 
   .text-content {
@@ -110,7 +79,7 @@
   .span-cirkel {
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
+    gap: 1em;
   }
 
   h3 {
@@ -140,9 +109,14 @@
     .card-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 2rem;
       padding: 3rem;
-      place-items: center;
+      height: 100%;
+    }
+
+    .text-content {
+      height: 100%;
+      justify-content: space-between;
     }
 
     h3 {
@@ -151,13 +125,31 @@
 
     p {
       font-size: 1.5rem;
-      padding: 0 2rem;
+      width: 75%;
     }
 
     span {
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      font-size: 20px;
+    }
+    .span-cirkel {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: 55em) {
+    .card-body {
+      display: flex;
+      flex-direction: row;
+    }
+    .text-content {
+      max-width: calc(100% / 4);
+      gap: 2em;
+    }
+    .span-cirkel {
+      gap: 2em;
     }
   }
 </style>
